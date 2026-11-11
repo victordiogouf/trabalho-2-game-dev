@@ -1,13 +1,24 @@
 [gd_scene format=3 uid="uid://bqmmi4x6qxfar"]
 
 [ext_resource type="PackedScene" uid="uid://konyl6heokuy" path="res://scenes/player.tscn" id="1_0wfyh"]
+[ext_resource type="PackedScene" uid="uid://bqn0vm0q7advh" path="res://plataforma.tscn" id="1_sugp2"]
 [ext_resource type="PackedScene" uid="uid://b33yd0is2ed0e" path="res://scenes/enemy.tscn" id="2_sugp2"]
 
 [node name="Main" type="Node2D" unique_id=303695183]
 
+[node name="plataforma" parent="." unique_id=1426750823 instance=ExtResource("1_sugp2")]
+
 [node name="Player" parent="." unique_id=2142821148 instance=ExtResource("1_0wfyh")]
-position = Vector2(426, 322)
+position = Vector2(56, 520)
 collision_mask = 3
 
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=586761032]
+position = Vector2(-1, 2)
+zoom = Vector2(4.11, 4.11)
+limit_left = 0
+limit_top = 288
+limit_right = 1152
+limit_bottom = 560
+
 [node name="Enemy" parent="." unique_id=1543864406 instance=ExtResource("2_sugp2")]
-position = Vector2(770, 325)
+position = Vector2(184, 520)

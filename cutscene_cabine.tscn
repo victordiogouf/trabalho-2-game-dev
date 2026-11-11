@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://c7jkkqqcg6nj"]
+
+[ext_resource type="Texture2D" uid="uid://c160q3mxv4xjo" path="res://door_cutscene_sheet.png" id="1_c54rj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s8nhr"]
+atlas = ExtResource("1_c54rj")
+region = Rect2(0, 0, 80, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r3sdc"]
+atlas = ExtResource("1_c54rj")
+region = Rect2(80, 0, 80, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1sval"]
+atlas = ExtResource("1_c54rj")
+region = Rect2(160, 0, 80, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kud01"]
+atlas = ExtResource("1_c54rj")
+region = Rect2(240, 0, 80, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6tdht"]
+atlas = ExtResource("1_c54rj")
+region = Rect2(320, 0, 80, 144)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vu3ll"]
+animations = [{
+"frames": [{
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_s8nhr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r3sdc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1sval")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kud01")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6tdht")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_3xx5g"]
+resource_name = "abrir_cabine"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bwgph"]
+_data = {
+&"abrir_cabine": SubResource("Animation_3xx5g")
+}
+
+[node name="CutsceneCabine" type="Node2D" unique_id=1401658529]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=551312967]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=162263469]
+offset_right = 1147.0
+offset_bottom = 647.0
+color = Color(0, 0, 0, 1)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer" unique_id=1889778606]
+position = Vector2(539, 334)
+scale = Vector2(3.175, 2.4305556)
+sprite_frames = SubResource("SpriteFrames_vu3ll")
+frame_progress = 0.47075784
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=500785012]
+libraries/ = SubResource("AnimationLibrary_bwgph")

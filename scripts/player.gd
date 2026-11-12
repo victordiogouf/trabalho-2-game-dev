@@ -2,6 +2,9 @@ extends CharacterBody2D
 
 @export var speed: float
 
+func _ready() -> void:
+	add_to_group("player")
+
 func _physics_process(delta: float) -> void:
 	var x_dir := Input.get_axis("move-left", "move-right")
 	var y_dir := Input.get_axis("move-up", "move-down")

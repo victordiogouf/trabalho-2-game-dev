@@ -1,3 +1,97 @@
 [gd_scene format=3 uid="uid://r1prma5c10us"]
 
+[ext_resource type="Texture2D" uid="uid://bf363pglsjajo" path="res://icon.svg" id="1_dn72j"]
+[ext_resource type="Script" uid="uid://clmtpl56f4ber" path="res://scripts/battle.gd" id="1_th188"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_kej8o"]
+font_size = 24
+
+[sub_resource type="LabelSettings" id="LabelSettings_gda3e"]
+font_size = 26
+
 [node name="Battle" type="Node" unique_id=1945512043]
+script = ExtResource("1_th188")
+
+[node name="Player" type="Sprite2D" parent="." unique_id=1988591436]
+position = Vector2(261, 456)
+texture = ExtResource("1_dn72j")
+
+[node name="Enemy" type="Sprite2D" parent="." unique_id=1747010528]
+position = Vector2(866, 169)
+texture = ExtResource("1_dn72j")
+
+[node name="Fight" type="VBoxContainer" parent="." unique_id=1729764772]
+offset_left = 617.0
+offset_top = 416.0
+offset_right = 761.0
+offset_bottom = 656.0
+
+[node name="Label" type="Label" parent="Fight" unique_id=411863404]
+layout_mode = 2
+text = "Fight"
+label_settings = SubResource("LabelSettings_kej8o")
+
+[node name="Attack" type="Button" parent="Fight" unique_id=1185482046]
+layout_mode = 2
+text = "Attack"
+
+[node name="Skill1" type="Button" parent="Fight" unique_id=2135622806]
+layout_mode = 2
+text = "Skill 1"
+
+[node name="Skill2" type="Button" parent="Fight" unique_id=229783519]
+layout_mode = 2
+text = "Skill 2"
+
+[node name="Skill3" type="Button" parent="Fight" unique_id=1621542044]
+layout_mode = 2
+text = "Skill 3"
+
+[node name="Skill4" type="Button" parent="Fight" unique_id=806907506]
+layout_mode = 2
+text = "Skill 4"
+
+[node name="Icons" type="Label" parent="." unique_id=1120789393]
+offset_left = 59.0
+offset_top = 50.0
+offset_right = 99.0
+offset_bottom = 73.0
+text = "0 Icons"
+label_settings = SubResource("LabelSettings_gda3e")
+
+[node name="Stats" type="VBoxContainer" parent="." unique_id=388464095]
+offset_left = 777.0
+offset_top = 451.0
+offset_right = 964.0
+offset_bottom = 635.0
+
+[node name="Player" type="VBoxContainer" parent="Stats" unique_id=428084783]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Stats/Player" unique_id=969905145]
+layout_mode = 2
+text = "Player"
+
+[node name="HP" type="Label" parent="Stats/Player" unique_id=526333601]
+layout_mode = 2
+text = "100/200 HP"
+
+[node name="MP" type="Label" parent="Stats/Player" unique_id=1765687651]
+layout_mode = 2
+text = "100/150 MP"
+
+[node name="Enemy" type="VBoxContainer" parent="Stats" unique_id=1862288044]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Stats/Enemy" unique_id=79317325]
+layout_mode = 2
+text = "Enemy"
+
+[node name="HP" type="Label" parent="Stats/Enemy" unique_id=1920425181]
+layout_mode = 2
+text = "100/200 HP"
+
+[node name="MP" type="Label" parent="Stats/Enemy" unique_id=2119512524]
+layout_mode = 2
+text = "50/100 MP
+"

@@ -4,12 +4,16 @@
 [ext_resource type="Script" uid="uid://bx8dt4rsttwn6" path="res://scenes/enemy.gd" id="1_md0e3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kej8o"]
-size = Vector2(128, 128)
+size = Vector2(127.63637, 127.63637)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gda3e"]
+size = Vector2(145.45454, 145.45454)
 
 [node name="Enemy" type="CharacterBody2D" unique_id=1543864406]
 scale = Vector2(0.11, 0.11)
 collision_layer = 2
 motion_mode = 1
+wall_min_slide_angle = 0.0
 script = ExtResource("1_md0e3")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1999429083]
@@ -17,3 +21,10 @@ texture = ExtResource("1_7p1mj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1244906108]
 shape = SubResource("RectangleShape2D_kej8o")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1605291765]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=882162144]
+shape = SubResource("RectangleShape2D_gda3e")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_body_entered"]

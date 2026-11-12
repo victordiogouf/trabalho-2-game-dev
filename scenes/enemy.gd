@@ -47,11 +47,10 @@ func _physics_process(delta: float) -> void:
 	velocity = direction * speed
 
 	move_and_slide()
-	
-	for i in get_slide_collision_count():
-		var collision = get_slide_collision(i)
-		var body = collision.get_collider()
-		
-		if body.is_in_group("player"):
-			#Enemy collided with player
-			collision_with_player.emit(data)
+
+
+func _on_body_entered(body: Node2D) -> void:
+	if body.is_in_group("player"):
+		#Enemy collided with player
+		modulate = Color(1, 0, 0)
+		collision_with_player.emit(self)

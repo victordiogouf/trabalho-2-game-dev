@@ -24,7 +24,6 @@ metadata/_custom_type_script = "uid://dgjph2judeqr"
 
 [node name="Player" parent="." unique_id=2142821148 instance=ExtResource("1_0wfyh")]
 position = Vector2(56, 520)
-collision_mask = 3
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=586761032]
 position = Vector2(-1, 2)
@@ -33,3 +32,5 @@ limit_left = 0
 limit_top = 288
 limit_right = 1152
 limit_bottom = 560
+
+[connection signal="enemies_ready" from="EnemyArea" to="." method="_on_enemies_ready"]

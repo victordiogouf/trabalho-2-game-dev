@@ -1,15 +1,11 @@
 extends Node2D
 
-func _ready() -> void:
-	$EnemyArea.connect("enemies_ready", on_enemies_ready)
+func on_enemy_collision(enemy: Node) -> void:
+	GameState.collided_enemy = enemy.data
+	enemy.queue_free()
+	GameState.last_scene = get_tree().current_scene
+	get_tree().change_scene_to_file("res://scenes/battle.tscn")
 
-func on_enemies_ready(enemies: Array[Node]) -> void:
+func _on_enemies_ready(enemies: Array[Node]) -> void:
 	for enemy in enemies:
 		enemy.connect("collision_with_player", on_enemy_collision)
-	
-func on_enemy_collision(enemy: GameState.Enemy) -> void:
-	GameState.collided_enemy = enemy
-	# transition between scenes
-	
-func _process(delta: float) -> void:
-	pass

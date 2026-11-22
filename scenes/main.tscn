@@ -6,10 +6,16 @@
 [ext_resource type="PackedScene" uid="uid://b33yd0is2ed0e" path="res://scenes/enemy.tscn" id="2_sugp2"]
 [ext_resource type="Script" uid="uid://dgjph2judeqr" path="res://scripts/enemy_area.gd" id="5_tbgi4"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kej8o"]
+size = Vector2(15, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gda3e"]
+size = Vector2(33, 31)
+
 [node name="Main" type="Node2D" unique_id=303695183]
 script = ExtResource("1_jyhfs")
 
-[node name="EnemyArea" type="Node" parent="." unique_id=968015507]
+[node name="EnemyArea1" type="Node" parent="." unique_id=968015507]
 script = ExtResource("5_tbgi4")
 min_rect = Vector2(200, 489)
 max_rect = Vector2(314, 549)
@@ -20,10 +26,21 @@ enemy_types = Array[int]([2])
 enemy_scene = ExtResource("2_sugp2")
 metadata/_custom_type_script = "uid://dgjph2judeqr"
 
+[node name="EnemyArea2" type="Node" parent="." unique_id=1380742809]
+script = ExtResource("5_tbgi4")
+min_rect = Vector2(1080, 487)
+max_rect = Vector2(1145, 547)
+min_level = 20
+max_level = 25
+num_enemies = 1
+enemy_types = Array[int]([0])
+enemy_scene = ExtResource("2_sugp2")
+metadata/_custom_type_script = "uid://dgjph2judeqr"
+
 [node name="plataforma" parent="." unique_id=1426750823 instance=ExtResource("1_sugp2")]
 
 [node name="Player" parent="." unique_id=2142821148 instance=ExtResource("1_0wfyh")]
-position = Vector2(56, 520)
+position = Vector2(977, 525)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=586761032]
 position = Vector2(-1, 2)
@@ -33,4 +50,17 @@ limit_top = 288
 limit_right = 1152
 limit_bottom = 560
 
-[connection signal="enemies_ready" from="EnemyArea" to="." method="_on_enemies_ready"]
+[node name="Area2D" type="Area2D" parent="." unique_id=315058593]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=681479104]
+position = Vector2(1088.5, 459)
+shape = SubResource("RectangleShape2D_kej8o")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1606597712]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1648680541]
+position = Vector2(1087.5, 447.5)
+shape = SubResource("RectangleShape2D_gda3e")
+
+[connection signal="enemies_ready" from="EnemyArea1" to="." method="_on_enemies_ready"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_door_body_entered"]

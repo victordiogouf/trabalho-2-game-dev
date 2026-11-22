@@ -200,9 +200,9 @@ enum Direction {
 }
 
 # last scene related info
-var last_scene: Node
-#var last_player_position: Vector2
-#var last_player_facing_direction: Direction
+var last_scene: PackedScene
+var last_player_position: Vector2=Vector2(56,520)
+var last_player_facing_direction: Direction
 
 var defeated_first_boss := false
 var defeated_second_boss := false

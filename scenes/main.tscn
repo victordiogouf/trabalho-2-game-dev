@@ -16,7 +16,7 @@ max_rect = Vector2(314, 549)
 min_level = 8
 max_level = 15
 num_enemies = 3
-enemy_types = Array[int]([0])
+enemy_types = Array[int]([2])
 enemy_scene = ExtResource("2_sugp2")
 metadata/_custom_type_script = "uid://dgjph2judeqr"
 

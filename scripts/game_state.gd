@@ -116,11 +116,12 @@ func create_player() -> Player:
 	player.back_sprite = preload("res://icon.svg")
 	return player
 	
+# boss overworld
 func create_oni(min_level: int, max_level: int) -> Enemy:
 	var enemy := Enemy.new()
 	enemy.base_hp = 150
 	enemy.base_mp = 90
-	enemy.base_strength = 120
+	enemy.base_strength = 110
 	enemy.base_magic = 80
 	enemy.base_agility = 90
 	enemy.level = randi_range(min_level, max_level)
@@ -130,7 +131,7 @@ func create_oni(min_level: int, max_level: int) -> Enemy:
 	enemy.skills = []
 	enemy.skills.append(create_ice_beam())
 	enemy.skills.append(create_zan())
-	enemy.front_sprite = preload("res://icon.svg")
+	enemy.front_sprite = preload("res://boss_batalha.png")
 	enemy.elemental_affinities = []
 	
 	var affinity := ElementalAffinity.new()
@@ -139,11 +140,59 @@ func create_oni(min_level: int, max_level: int) -> Enemy:
 	enemy.elemental_affinities.append(affinity)
 	return enemy
 	
+# BOss vagao
 func create_banshee(min_level: int, max_level: int) -> Enemy:
-	return create_oni(min_level, max_level)
+	var enemy := Enemy.new()
+	enemy.base_hp = 140
+	enemy.base_mp = 120
+	enemy.base_strength = 120
+	enemy.base_magic = 100
+	enemy.base_agility = 100
+	enemy.level = randi_range(min_level, max_level)
+	enemy.hp = enemy.max_hp()
+	enemy.mp = enemy.max_mp()
+	enemy.name = "Banshee"
+	enemy.skills = []
+	enemy.skills.append(create_thunder())
+	enemy.skills.append(create_zan())
+	enemy.front_sprite = preload("res://boss2_batalha.png")
+	enemy.elemental_affinities = []
+	
+	var affinity := ElementalAffinity.new()
+	affinity.type = ElementalType.force
+	affinity.affinity = Affinity.weak
+	enemy.elemental_affinities.append(affinity)
+	
+	affinity = ElementalAffinity.new()
+	affinity.type = ElementalType.electricity
+	affinity.affinity = Affinity.immune
+	enemy.elemental_affinities.append(affinity)
+	
+	return enemy
 
+# Inimigo padrao
 func create_medusa(min_level: int, max_level: int) -> Enemy:
-	return create_oni(min_level, max_level)
+	var enemy := Enemy.new()
+	enemy.base_hp = 90
+	enemy.base_mp = 80
+	enemy.base_strength = 90
+	enemy.base_magic = 70
+	enemy.base_agility = 80
+	enemy.level = randi_range(min_level, max_level)
+	enemy.hp = enemy.max_hp()
+	enemy.mp = enemy.max_mp()
+	enemy.name = "Medusa"
+	enemy.skills = []
+	enemy.skills.append(create_thunder())
+	enemy.skills.append(create_zan())
+	enemy.front_sprite = preload("res://inimigo_base_overworld.png")
+	enemy.elemental_affinities = []
+	
+	var affinity := ElementalAffinity.new()
+	affinity.type = ElementalType.electricity
+	affinity.affinity = Affinity.weak
+	enemy.elemental_affinities.append(affinity)
+	return enemy
 
 enum Direction {
 	left,

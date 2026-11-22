@@ -28,10 +28,15 @@ func _ready() -> void:
 	match type:
 		EnemyType.oni: 
 			data = GameState.create_oni(min_level, max_level)
+			$AnimatedSprite2D.animation = "boss-overworld-oni"
 		EnemyType.banshee: 
 			data = GameState.create_banshee(min_level, max_level)
+			$AnimatedSprite2D.animation = "boss-vagao-banshee"
 		EnemyType.medusa: 
 			data = GameState.create_medusa(min_level, max_level)
+			$AnimatedSprite2D.animation = "inimigo-medusa"
+	
+	$AnimatedSprite2D.play()
 
 func _physics_process(delta: float) -> void:
 	if position.x < min_rect.x:

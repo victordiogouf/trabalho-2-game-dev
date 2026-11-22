@@ -156,3 +156,4 @@ var last_scene: Node
 #var last_player_facing_direction: Direction
 
 var collided_enemy: Enemy
+var player: Player

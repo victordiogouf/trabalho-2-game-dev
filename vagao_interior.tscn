@@ -2,6 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://cni3io30pp0w6" path="res://tilemap.png" id="1_e14wl"]
 [ext_resource type="PackedScene" uid="uid://konyl6heokuy" path="res://scenes/player.tscn" id="2_b0sfp"]
+[ext_resource type="Script" uid="uid://dgjph2judeqr" path="res://scripts/enemy_area.gd" id="3_uvr6b"]
+[ext_resource type="PackedScene" uid="uid://b33yd0is2ed0e" path="res://scenes/enemy.tscn" id="4_7paaw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b0sfp"]
 texture = ExtResource("1_e14wl")
@@ -171,7 +173,7 @@ tile_map_data = PackedByteArray("AAABAB0AAQAFAAQAAAAGAB0AAQAFAAQAAAALAB0AAQAFAAQ
 tile_set = SubResource("TileSet_ncnps")
 
 [node name="Player" parent="." unique_id=2142821148 instance=ExtResource("2_b0sfp")]
-position = Vector2(39, 519)
+position = Vector2(34, 517)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=726488675]
 zoom = Vector2(5.15, 5.15)
@@ -179,3 +181,14 @@ limit_left = 0
 limit_top = 416
 limit_right = 752
 limit_bottom = 544
+
+[node name="EnemyAreaBoss" type="Node" parent="." unique_id=1635556717]
+script = ExtResource("3_uvr6b")
+min_rect = Vector2(638, 497)
+max_rect = Vector2(724, 537)
+min_level = 35
+max_level = 40
+num_enemies = 1
+enemy_types = Array[int]([1])
+enemy_scene = ExtResource("4_7paaw")
+metadata/_custom_type_script = "uid://dgjph2judeqr"

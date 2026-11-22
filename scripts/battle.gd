@@ -51,7 +51,7 @@ func _on_attack_pressed() -> void:
 func _on_skill_1_pressed() -> void:
 	var skill = GameState.player.skills[0]
 	var enemy = GameState.collided_enemy
-	var damage = GameState.player.magic()
+	var damage = GameState.player.skills[0].power/10
 
 	var found_affinity = false
 
@@ -72,7 +72,7 @@ func _on_skill_1_pressed() -> void:
 func _on_skill_2_pressed() -> void:
 	var skill = GameState.player.skills[1]
 	var enemy = GameState.collided_enemy
-	var damage = GameState.player.magic()
+	var damage = GameState.player.skills[1].power/10
 
 	var found_affinity = false
 
@@ -94,7 +94,7 @@ func _on_skill_2_pressed() -> void:
 func _on_skill_3_pressed() -> void:
 	var skill = GameState.player.skills[2]
 	var enemy = GameState.collided_enemy
-	var damage = GameState.player.magic()
+	var damage = GameState.player.skills[2].power/10
 
 	var found_affinity = false
 
@@ -115,7 +115,7 @@ func _on_skill_3_pressed() -> void:
 func _on_skill_4_pressed() -> void:
 	var skill = GameState.player.skills[3]
 	var enemy = GameState.collided_enemy
-	var damage = GameState.player.magic()
+	var damage = GameState.player.skills[3].power/10
 
 	var found_affinity = false
 

@@ -63,4 +63,5 @@ position = Vector2(1087.5, 448)
 shape = SubResource("RectangleShape2D_gda3e")
 
 [connection signal="enemies_ready" from="EnemyArea1" to="." method="_on_enemies_ready"]
+[connection signal="enemies_ready" from="EnemyArea2" to="." method="_on_enemy_area_2_enemies_ready"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_door_body_entered"]

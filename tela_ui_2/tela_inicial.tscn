@@ -1,0 +1,102 @@
+[gd_scene format=3 uid="uid://crs4y5iqbmywf"]
+
+[ext_resource type="Script" uid="uid://cqv0adlc3i4gv" path="res://tela_ui_2/tela_inicial.gd" id="1_urcws"]
+[ext_resource type="Texture2D" uid="uid://b20td5bs7xqkn" path="res://tela_ui_2/personagem_batalha.png" id="2_2h3rg"]
+[ext_resource type="FontFile" uid="uid://dl5g54kbp5mfl" path="res://tela_ui_2/PressStart2P.ttf" id="3_gvjuk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2ecdl"]
+
+[node name="tela inicial" type="Control" unique_id=399937045]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+script = ExtResource("1_urcws")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2047553409]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.08235294, 0, 0.06666667, 1)
+
+[node name="imagem" type="TextureRect" parent="ColorRect" unique_id=1024710427]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -147.0
+offset_top = -50.0
+offset_right = 198.0
+offset_bottom = 66.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_2h3rg")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="CURSE" type="Label" parent="." unique_id=304841106]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.28500003
+anchor_top = 0.177
+anchor_right = 0.71900004
+anchor_bottom = 0.307
+offset_left = -4.320038
+offset_top = 0.30400085
+offset_right = -0.2880249
+offset_bottom = -3.9360046
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_gvjuk")
+theme_override_font_sizes/font_size = 80
+text = "CURSE"
+horizontal_alignment = 1
+
+[node name="iniciar" type="Button" parent="." unique_id=1879171399]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.37
+anchor_top = 0.74700004
+anchor_right = 0.62
+anchor_bottom = 0.79600006
+offset_left = 1.7600098
+offset_top = 0.9439697
+offset_right = 1.7600098
+offset_bottom = 1.1919556
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_gvjuk")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxEmpty_2ecdl")
+text = "INICIAR
+"
+
+[node name="iniciar2" type="Button" parent="." unique_id=1233421495]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.37
+anchor_top = 0.841
+anchor_right = 0.62600005
+anchor_bottom = 0.89000005
+offset_left = 6.76001
+offset_top = 0.031982422
+offset_right = -0.15203857
+offset_bottom = 0.27996826
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_gvjuk")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxEmpty_2ecdl")
+text = "CREDITOS
+
+"

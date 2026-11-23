@@ -25,7 +25,7 @@ func temporary_invincibility() -> void:
 	set_collision_layer_value(1, false)
 	set_collision_mask_value(2, false)
 	modulate=Color("#6082B6")
-	await get_tree().create_timer(5.0).timeout
+	await get_tree().create_timer(3.0).timeout
 	set_collision_layer_value(1, true)
 	set_collision_mask_value(2, true)
 	modulate=Color(1,1,1)

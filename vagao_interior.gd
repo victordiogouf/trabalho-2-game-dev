@@ -3,6 +3,7 @@ extends Node2D
 var collision := false
 
 func _ready() -> void:
+	
 	collision = false
 
 	if GameState.player == null:
@@ -25,3 +26,6 @@ func on_enemy_collision(enemy: Node) -> void:
 func _on_enemy_area_boss_enemies_ready(enemies: Array[Node]) -> void:
 	for enemy in enemies:
 		enemy.connect("collision_with_player", on_enemy_collision)
+func _process(delta: float) -> void:
+	if GameState.defeated_second_boss==true:
+		get_tree().change_scene_to_file("res://tela_ui_2/créditos.tscn")

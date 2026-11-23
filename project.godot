@@ -13,7 +13,6 @@ config_version=5
 config/name="Trabalho 2"
 run/main_scene="uid://crs4y5iqbmywf"
 config/features=PackedStringArray("4.7", "GL Compatibility")
-boot_splash/bg_color=Color(0.67058825, 0.57254905, 0.7019608, 1)
 config/icon="res://icon.svg"
 
 [autoload]
@@ -57,3 +56,4 @@ move-down={
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+environment/defaults/default_clear_color=Color(0.67058825, 0.57254905, 0.7019608, 1)

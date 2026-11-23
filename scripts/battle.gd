@@ -2,6 +2,8 @@ extends Node
 var playerturn:bool
 var enemyturn:bool
 func _ready() -> void:
+	if GameState.collided_enemy.name== "Banshee":
+		$"FundoBatalhaEstação".texture=preload("res://fundo_batalha_vagão.png")
 	$Fight/Skill1.text="Flamethrower"
 	$Fight/Skill2.text="Mudo"
 	$Fight/Skill3.text="Ice Beam"
@@ -12,8 +14,19 @@ func _ready() -> void:
 	$Stats/Enemy/MP.text=str(GameState.collided_enemy.mp)+"/"+str(GameState.collided_enemy.max_mp())+" MP"
 	var atlas := AtlasTexture.new()
 	atlas.atlas = GameState.collided_enemy.front_sprite
-	var frame = randi_range(0, 9)
-	atlas.region = Rect2(frame * 16, 0, 16, 32)
+
+	var frame: int
+	var frame_width: int
+
+	if GameState.collided_enemy.name == "Oni" or GameState.collided_enemy.name == "Banshee" :
+		frame_width = 32
+		frame = randi_range(0, 6)
+	else:
+		frame_width = 16
+		frame = randi_range(0, 9)
+
+	atlas.region = Rect2(frame * frame_width, 0, frame_width, 32)
+
 	$Enemy.texture = atlas
 	$Enemy.scale = Vector2(10, 10)
 	if GameState.collided_enemy.agility()>GameState.player.agility():
@@ -35,12 +48,16 @@ func _process(delta: float) -> void:
 	if GameState.collided_enemy.hp <= 0:
 		if GameState.collided_enemy.name == "Oni":
 			GameState.defeated_first_boss = true
+		if GameState.collided_enemy.name == "Banshee":
+			GameState.defeated_second_boss = true
 		get_tree().change_scene_to_packed(GameState.last_scene)
 		return
 	if GameState.player.hp<=0:
 		get_tree().change_scene_to_file("res://tela_ui/game_over.tscn")
 	if enemyturn:
 		enemy_turn()
+	if GameState.player.mp<=0:
+		$Stats/Player/MP.text=str(0)+"/"+str(GameState.player.max_mp())+" MP"
 
 func enemy_turn() -> void:
 	enemyturn = false
@@ -75,10 +92,10 @@ func _on_skill_1_pressed() -> void:
 				damage *= 2
 
 			break
-	if playerturn:
+	if playerturn and GameState.player.mp>3 :
 		change_player_sprite(0)
 		enemy.hp -= damage
-		GameState.player.mp -= 4
+		GameState.player.mp -= 3
 		enemyturn=true
 		playerturn=false
 		
@@ -98,7 +115,7 @@ func _on_skill_2_pressed() -> void:
 				damage *= 2
 
 			break
-	if playerturn:
+	if playerturn and GameState.player.mp>4 :
 		change_player_sprite(1)
 		enemy.hp -= damage
 		GameState.player.mp -= 4
@@ -122,10 +139,10 @@ func _on_skill_3_pressed() -> void:
 				damage *= 2
 
 			break
-	if playerturn:
+	if playerturn and GameState.player.mp>5:
 		change_player_sprite(3)
 		enemy.hp -= damage
-		GameState.player.mp -= 4
+		GameState.player.mp -= 5
 		enemyturn=true
 		playerturn=false
 
@@ -144,10 +161,10 @@ func _on_skill_4_pressed() -> void:
 				damage *= 2
 
 			break
-	if playerturn:
+	if playerturn and GameState.player.mp>3:
 		change_player_sprite(4)
 		enemy.hp -= damage
-		GameState.player.mp -= 4
+		GameState.player.mp -= 3
 		enemyturn=true
 		playerturn=false
 

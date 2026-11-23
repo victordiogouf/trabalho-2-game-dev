@@ -4,7 +4,23 @@ extends Control
 
 func _ready() -> void:
 	var tween = create_tween().set_loops()
-	# Muda para vinho em 2 segundos
 	tween.tween_property(fundo, "color", Color("#4a0e1e"), 2.0)
-	# Muda para roxo escuro em 2 segundos
 	tween.tween_property(fundo, "color", Color("#1e0a36"), 2.0)
+
+
+func _on_iniciar_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/main.tscn")
+
+
+func _on_continuar_pressed() -> void:
+	GameState.player.hp=GameState.player.max_hp()
+	GameState.player.mp=GameState.player.max_mp()
+	get_tree().change_scene_to_file("res://scenes/main.tscn")
+
+
+func _on_sair_pressed() -> void:
+	get_tree().quit()
+
+
+func _on_iniciar_2_pressed() -> void:
+	get_tree().change_scene_to_file("res://tela_ui_2/créditos.tscn")

@@ -1,0 +1,93 @@
+[gd_scene format=3 uid="uid://b4j2lxttm54f3"]
+
+[ext_resource type="Script" uid="uid://djm6t7fxhtyjs" path="res://tela_ui_2/control.gd" id="1_qw7aq"]
+[ext_resource type="FontFile" uid="uid://dl5g54kbp5mfl" path="res://tela_ui_2/PressStart2P.ttf" id="2_n007u"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7v4ru"]
+
+[node name="Control" type="Control" unique_id=1776479119]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qw7aq")
+velocidade_rolagem = 35.0
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1247242395]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="TextoCreditos" type="RichTextLabel" parent="." unique_id=868393978]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -600.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/normal_font = ExtResource("2_n007u")
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "[center][color=yellow]CURSE[/color]
+[color=gray]DCC148-2026.3 - Desenvolvimento de Jogos[/color]
+
+
+[color=yellow]EQUIPE DE DESENVOLVIMENTO[/color]
+
+[color=gray]GAME DESIGNER[/color]
+Henry Pancini de Paula
+Matrícula: 202428023
+
+[color=gray]PROGRAMAÇÃO & TRILHA SONORA[/color]
+Pedro Alvim de Oliveira
+Matrícula: 202465074AC
+
+[color=gray]PROGRAMAÇÃO[/color]
+Victor Araújo Diogo
+Matrícula: 202265197C
+
+
+[color=yellow]ORIENTAÇÃO[/color]
+Prof. Marcelo Caniato Renhe
+DCC148 - Desenvolvimento de Jogos
+
+
+[color=yellow]FERRAMENTAS & RECURSOS[/color]
+Engine: Godot Engine 4
+Fonte: Press Start 2P (CodeMan38)
+
+
+Obrigado por jogar![/center]"
+fit_content = true
+
+[node name="voltar" type="Button" parent="." unique_id=1023549851]
+layout_mode = 1
+offset_right = 104.0
+offset_bottom = 24.0
+theme_override_fonts/font = ExtResource("2_n007u")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_7v4ru")
+text = "VOLTAR"
+
+[node name="MensagemVitoria" type="Label" parent="." unique_id=131152080]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_n007u")
+theme_override_font_sizes/font_size = 20
+text = "SUA ALMA FOI LIBERTA.
+
+VOCE VIVERÁ MAIS UM DIA."
+horizontal_alignment = 1
+vertical_alignment = 1

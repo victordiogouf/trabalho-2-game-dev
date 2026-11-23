@@ -9,6 +9,8 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kej8o"]
 size = Vector2(15, 14)
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_tbgi4"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gda3e"]
 size = Vector2(33, 32)
 
@@ -57,6 +59,7 @@ position = Vector2(1088.5, 459)
 shape = SubResource("RectangleShape2D_kej8o")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1606597712]
+physics_material_override = SubResource("PhysicsMaterial_tbgi4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1648680541]
 position = Vector2(1087.5, 448)

@@ -179,9 +179,7 @@ position = Vector2(34, 517)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=726488675]
 zoom = Vector2(5.15, 5.15)
-limit_left = 0
 limit_top = 416
-limit_right = 752
 limit_bottom = 544
 
 [node name="EnemyAreaBoss" type="Node" parent="." unique_id=1635556717]

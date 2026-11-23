@@ -11,8 +11,9 @@ config_version=5
 [application]
 
 config/name="Trabalho 2"
-run/main_scene="uid://bqmmi4x6qxfar"
+run/main_scene="uid://crs4y5iqbmywf"
 config/features=PackedStringArray("4.7", "GL Compatibility")
+boot_splash/bg_color=Color(0.67058825, 0.57254905, 0.7019608, 1)
 config/icon="res://icon.svg"
 
 [autoload]

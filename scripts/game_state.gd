@@ -113,7 +113,7 @@ func create_player() -> Player:
 	player.skills.append(create_mudo())
 	player.skills.append(create_ice_beam())
 	player.skills.append(create_zan())
-	player.back_sprite = preload("res://icon.svg")
+	player.back_sprite = preload("res://tela_ui/personagem_batalha.png")
 	return player
 	
 # boss overworld

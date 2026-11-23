@@ -233,7 +233,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_lkc77")
 }],
-"loop": 0,
+"loop": 2,
 "name": &"default",
 "speed": 5.0
 }]
@@ -252,3 +252,4 @@ tile_set = SubResource("TileSet_1v4vm")
 [node name="porta_vagão" type="AnimatedSprite2D" parent="objetos" unique_id=394764562]
 position = Vector2(1088, 448)
 sprite_frames = SubResource("SpriteFrames_ncnps")
+frame_progress = 0.52014226

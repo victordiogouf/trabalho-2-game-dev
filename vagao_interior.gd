@@ -4,11 +4,14 @@ var collision := false
 
 func _ready() -> void:
 	collision = false
+
 	if GameState.player == null:
 		GameState.player = GameState.create_player()
-	$Player.position=GameState.last_player_position
-	$Player.temporary_invincibility()
 
+	#$Player.position = GameState.last_player_position
+	$Player/Camera2D.make_current()
+	$Player.temporary_invincibility()
+	
 func on_enemy_collision(enemy: Node) -> void:
 	if collision:
 		return

@@ -32,9 +32,13 @@ func _process(delta: float) -> void:
 	$Stats/Player/MP.text=str(GameState.player.mp)+"/"+str(GameState.player.max_mp())+" MP"
 	$Stats/Enemy/HP.text=str(GameState.collided_enemy.hp)+"/"+str(GameState.collided_enemy.max_hp())+" HP"
 	$Stats/Enemy/MP.text=str(GameState.collided_enemy.mp)+"/"+str(GameState.collided_enemy.max_mp())+" MP"
-	if GameState.collided_enemy.hp<=0:
+	if GameState.collided_enemy.hp <= 0:
+		if GameState.collided_enemy.name == "Oni":
+			GameState.defeated_first_boss = true
 		get_tree().change_scene_to_packed(GameState.last_scene)
 		return
+	if GameState.player.hp<=0:
+		get_tree().change_scene_to_file("res://tela_ui/game_over.tscn")
 	if enemyturn:
 		enemy_turn()
 
@@ -49,9 +53,11 @@ func enemy_turn() -> void:
 	$Icons.text="Player Turn"
 func _on_attack_pressed() -> void:
 	if playerturn:
+		change_player_sprite(2)
 		GameState.collided_enemy.hp-=GameState.player.strength()
 		enemyturn=true
 		playerturn=false
+		
 
 
 func _on_skill_1_pressed() -> void:
@@ -70,10 +76,12 @@ func _on_skill_1_pressed() -> void:
 
 			break
 	if playerturn:
+		change_player_sprite(0)
 		enemy.hp -= damage
 		GameState.player.mp -= 4
 		enemyturn=true
 		playerturn=false
+		
 
 func _on_skill_2_pressed() -> void:
 	var skill = GameState.player.skills[1]
@@ -91,10 +99,12 @@ func _on_skill_2_pressed() -> void:
 
 			break
 	if playerturn:
+		change_player_sprite(1)
 		enemy.hp -= damage
 		GameState.player.mp -= 4
 		enemyturn=true
 		playerturn=false
+		
 
 
 func _on_skill_3_pressed() -> void:
@@ -113,6 +123,7 @@ func _on_skill_3_pressed() -> void:
 
 			break
 	if playerturn:
+		change_player_sprite(3)
 		enemy.hp -= damage
 		GameState.player.mp -= 4
 		enemyturn=true
@@ -134,7 +145,14 @@ func _on_skill_4_pressed() -> void:
 
 			break
 	if playerturn:
+		change_player_sprite(4)
 		enemy.hp -= damage
 		GameState.player.mp -= 4
 		enemyturn=true
 		playerturn=false
+
+func change_player_sprite(frame: int) -> void:
+	$Player.texture = GameState.player.back_sprite
+	$Player.region_enabled = true
+	$Player.region_rect = Rect2(frame * 16, 0, 16, 32)
+	$Player.scale = Vector2(10, 10)

@@ -98,3 +98,6 @@ theme_override_fonts/font = ExtResource("2_mtrl5")
 theme_override_font_sizes/font_size = 24
 text = "SUA ALMA FOI DEVORADA"
 horizontal_alignment = 1
+
+[connection signal="pressed" from="continuar" to="." method="_on_continuar_pressed"]
+[connection signal="pressed" from="sair" to="." method="_on_sair_pressed"]

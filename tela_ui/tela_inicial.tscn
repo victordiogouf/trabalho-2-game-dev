@@ -60,3 +60,5 @@ theme_override_fonts/font = ExtResource("3_gvjuk")
 theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxEmpty_vu3ll")
 text = "INICIAR"
+
+[connection signal="pressed" from="iniciar" to="." method="_on_iniciar_pressed"]

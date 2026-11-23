@@ -10,6 +10,12 @@ func _ready() -> void:
 	$Stats/Player/MP.text=str(GameState.player.mp)+"/"+str(GameState.player.max_mp())+" MP"
 	$Stats/Enemy/HP.text=str(GameState.collided_enemy.hp)+"/"+str(GameState.collided_enemy.max_hp())+" HP"
 	$Stats/Enemy/MP.text=str(GameState.collided_enemy.mp)+"/"+str(GameState.collided_enemy.max_mp())+" MP"
+	var atlas := AtlasTexture.new()
+	atlas.atlas = GameState.collided_enemy.front_sprite
+	var frame = randi_range(0, 9)
+	atlas.region = Rect2(frame * 16, 0, 16, 32)
+	$Enemy.texture = atlas
+	$Enemy.scale = Vector2(10, 10)
 	if GameState.collided_enemy.agility()>GameState.player.agility():
 		enemyturn=true
 		playerturn=false

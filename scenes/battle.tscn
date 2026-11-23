@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bf363pglsjajo" path="res://icon.svg" id="1_dn72j"]
 [ext_resource type="Script" uid="uid://clmtpl56f4ber" path="res://scripts/battle.gd" id="1_th188"]
 [ext_resource type="Texture2D" uid="uid://ju3q1rgpibdq" path="res://fundo_batalha_estação.png" id="2_p1qf1"]
+[ext_resource type="Texture2D" uid="uid://ccr1ss867dt2c" path="res://personagem_batalha.png" id="3_v7i3o"]
 [ext_resource type="LabelSettings" uid="uid://wxrpg6kimbxx" path="res://new_label_settings.tres" id="4_a12nh"]
 [ext_resource type="StyleBox" uid="uid://pw1s2o622feo" path="res://normal.tres" id="5_yahae"]
 [ext_resource type="StyleBox" uid="uid://bb7xxy63yydye" path="res://pressed.tres" id="6_v7i3o"]
@@ -31,10 +32,15 @@ scale = Vector2(4.4726563, 3.6931815)
 texture = ExtResource("2_p1qf1")
 
 [node name="Player" type="Sprite2D" parent="." unique_id=1988591436]
+texture_filter = 1
 position = Vector2(261, 456)
-texture = ExtResource("1_dn72j")
+scale = Vector2(10, 10)
+texture = ExtResource("3_v7i3o")
+region_enabled = true
+region_rect = Rect2(32, 0, 16, 32)
 
 [node name="Enemy" type="Sprite2D" parent="." unique_id=1747010528]
+texture_filter = 1
 position = Vector2(866, 169)
 texture = ExtResource("1_dn72j")
 

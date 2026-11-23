@@ -74,7 +74,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"walk-left",
-"speed": 5.0
+"speed": 20.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -97,7 +97,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"walk-right",
-"speed": 5.0
+"speed": 20.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kej8o"]
@@ -114,7 +114,8 @@ speed = 80.0
 position = Vector2(4.7683716e-07, -4.499999)
 scale = Vector2(0.875, 0.71875)
 sprite_frames = SubResource("SpriteFrames_kej8o")
-animation = &"walk-right"
+animation = &"walk-left"
+frame_progress = 0.13967247
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1070060893]
 position = Vector2(0, -4.5)
